@@ -21,7 +21,7 @@ const NavBar = () => {
           >
             <span className="visually-hidden">Bookings</span>
             <img
-              src="/images/briefcase.svg"
+              src="./images/briefcase.svg"
               alt="bookings"
             />
           </Link>

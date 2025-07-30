@@ -35,7 +35,7 @@ const ProfileMenu = () => {
     >
       <span className={styles["visually-hidden"]}>Profile</span>
       <img
-        src="/images/user.svg"
+        src="./images/user.svg"
         alt="profile"
       />
       <ul

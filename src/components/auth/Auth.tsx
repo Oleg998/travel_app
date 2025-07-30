@@ -28,8 +28,12 @@ const Auth = () => {
     try {
       await dispatch(AuthActions.signUp(data)).unwrap();
       Notiflix.Notify.success("Registration successful");
-    } catch (error: any) {
-      Notiflix.Notify.failure(error?.message || "Error  registration");
+    } catch (error: unknown) {
+      const message =
+        error && typeof error === "object" && "message" in error
+          ? (error as { message: string }).message
+          : "Registration error";
+      Notiflix.Notify.failure(message);
     }
   };
 
@@ -37,10 +41,15 @@ const Auth = () => {
     try {
       await dispatch(AuthActions.signIn(data)).unwrap();
       Notiflix.Notify.success("Login successful");
-    } catch (error: any) {
-      Notiflix.Notify.failure(error?.message || "Login error");
+    } catch (error: unknown) {
+      const message =
+        error && typeof error === "object" && "message" in error
+          ? (error as { message: string }).message
+          : "Login error";
+      Notiflix.Notify.failure(message);
     }
   };
+
 
   const { pathname } = useLocation();
 
